@@ -1,0 +1,94 @@
+package rover_positioning;
+
+//rover class
+class Rover{
+//defines rovers traveling around in mission space
+	
+	//rover state properties
+	private int start_rover_x;//start x coordinate of rover
+	private int start_rover_y;//start y coordinate of rover
+	//private int start_rover_z;//start elevation of rover
+	
+	private char start_rover_dir;//final direction rover is facing (N,W,S,E)
+	private String end_rover;
+	private int  end_rover_x;//end x coordinate of rover
+	private int  end_rover_y;//end y coordinate of rover
+	//	private int end_rover_z;//end elevation of rover
+	
+	private char end_rover_dir;//final direction rover is facing (N,W,S,E)
+	//rover state properties
+
+	//rover mission info properties
+	private String mission_order;//order given to individual rover
+	
+	//	private int rover_distance;//Traveled along paths
+	//	private int rover_distance_absolute;//actual distance from start point
+	//rover mission info properties
+	
+	//rover cam properties
+	//	private int rover_cam_FOV;//field of vision for camera in degrees (wide or narrow)
+	//	private int rover_cam_height;//rover elevation + some assumed height
+	//	private int rover_cam_vision;//what the rover can see.
+	//	array showing co-ordinates rover can see if fov is narrow
+	//	then can only see direct line, if wide, can see 2 diagonally either side (3 points max)
+	//rover cam properties
+	
+	
+	public  void setStartCo(String co_ordinates) {
+		
+		String[] splitArray = co_ordinates.split("\\s+");
+		start_rover_x =  Integer.parseInt(splitArray[0]);
+		start_rover_y =  Integer.parseInt(splitArray[1]);
+		start_rover_dir =(splitArray[2]).charAt(0);
+	}
+
+	public  int[] getStartCo() {
+		int[] start_pos ={start_rover_x,start_rover_y};
+		return start_pos;
+	}
+	public char getStartDir(){
+		return start_rover_dir;
+	}
+	
+	public  String getMissionOrder() {
+		return mission_order;
+	}
+	public  void setMissionOrder(String MissionOrder) {
+		mission_order = MissionOrder;
+	}
+	
+	
+	
+	
+	public  String getEnd() {
+		
+		
+		return end_rover;
+	}
+	
+	public  void setEnd(int[] pos, char c, String move) {
+		//takes the details of the rover and calculates the endpoint
+		//String[] splitArray = move.split("\\s+");//splits the move order up
+		Char[] splitArray = move.toCharArray()//splits the move order up
+
+		int x = pos[0];//separates the array into local variables
+		int y = pos[1];
+		char dir = c;//creates a local variable for the direction
+		
+		for (int i=0;i<splitArray.length;i++){
+			System.out.println(splitArray[i]);
+			
+			
+		}
+
+		
+		
+		//joins the rover co-ordinates up to report the final format.
+
+		String a = "move answer";
+		end_rover = a;
+	}
+	
+	
+}
+//rover class

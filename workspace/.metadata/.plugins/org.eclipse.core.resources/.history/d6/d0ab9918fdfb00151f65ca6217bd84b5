@@ -1,0 +1,113 @@
+package rover_positioning;
+import java.util.Scanner;
+public class MissionSpace{
+//defines mission space that rover's operate in
+	//properties
+	private static int MissionSpaceNumber=0;
+	private static String MissionSpaceName;
+	private String mission_dimensions;
+	private int mission_size_x;//plateau x dimension
+	private int mission_size_y;//plateau y dimension
+	private Rover[] rovers;//Array of Rovers operating in the mission space
+	private int number_of_rovers;//number of rover's operating in mission space
+	//some way of capturing elevation data
+	//	int mission_start_x = 0;//initial starting point
+	//	int mission_start_y = 0;//initial starting point
+	//	int mission_start_z=0;//elevation of start point
+	//properties
+	//methods
+	public void setRovers(Rover[] rovers){
+		Scanner roverInfo = new Scanner(System.in);
+		for (int i=0; i<rovers.length; i++){
+			rovers[i]= new Rover();
+			System.out.println("please enter rover "+(i+1)+ " co-ordinates");
+			String input = roverInfo.nextLine();
+			String pattern = "\\d\\s\\d\\s\\w|\\d\\d\\s\\d\\d\\s\\w|\\d\\d\\d\\s\\d\\d\\d\\s\\w";
+			while(input.matches(pattern)==false) {//error message
+		
+				System.out.println("ERROR Please enter a valid input");
+				System.out.println("please enter rover "+(i+1)+ " co-ordinates");
+				input=roverInfo.nextLine();
+			    }
+			rovers[i].setStartCo(input);
+			
+			System.out.println("please enter rover "+(i+1)+ " Move Instructions");
+			input = roverInfo.nextLine();
+			pattern = "[MLR]";
+			while(input.matches(pattern)==false) {//error message
+		
+				System.out.println("ERROR Please enter a valid input");
+				System.out.println("please enter rover "+(i+1)+ " Move Instructions");
+				input=roverInfo.nextLine();
+			    }
+			rovers[i].setMissionOrder(input);
+		}
+		roverInfo.close();
+	}
+	
+	public int getRovers(){
+		return rovers.length;
+	}
+	public  void setSpace(String mission_dimensions) {
+		 String[] splitArray = mission_dimensions.split("\\s+");
+		 mission_size_x =  Integer.parseInt(splitArray[0]);
+		 mission_size_y =  Integer.parseInt(splitArray[1]);
+
+	}	
+	public int getSpacex() {
+		
+		return mission_size_x;
+		
+	}
+	public int getSpacey() {
+		return mission_size_y;	
+	}
+	
+	public void setMissionSpaceName(int MissionSpaceNumber){
+		
+		if (MissionSpaceNumber==1){
+			MissionSpaceName = "alpha";
+		} 
+		else if (MissionSpaceNumber==2){
+			MissionSpaceName = "bravo";
+		}
+		else if (MissionSpaceNumber==3){
+			MissionSpaceName = "charlie";
+		}
+		else if (MissionSpaceNumber==4){
+			MissionSpaceName = "delta";
+		}
+		else {MissionSpaceName ="No name set, reffer to mission number as identifier.";
+		}
+	}
+	
+	public String getMissionSpaceName(){
+		return MissionSpaceName;
+	}
+	public  int getMissionSpaceNumber() {
+		return MissionSpaceNumber;
+		
+	}
+
+	public  int  getRoversInSpace() {
+		return number_of_rovers;
+	}
+
+	public  void setRoversInSpace(int rovernum) {
+		number_of_rovers = rovernum;
+	}
+	//methods
+	
+	//constructor
+	public MissionSpace(String dimensions){
+		if (this.getClass() == MissionSpace.class) {
+          MissionSpaceNumber+=1;
+      }
+		
+		mission_dimensions = dimensions;
+		String[] splitArray = mission_dimensions.split("\\s+");
+		mission_size_x =  Integer.parseInt(splitArray[0]);
+		mission_size_y =  Integer.parseInt(splitArray[1]);
+	}
+	//constructor
+}

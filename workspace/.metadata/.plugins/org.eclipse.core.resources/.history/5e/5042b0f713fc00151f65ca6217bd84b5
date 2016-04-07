@@ -1,0 +1,96 @@
+package rover_positioning;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+			
+		//welcome message
+		System.out.println("----------------------------------------------");
+		System.out.println("Hello ThoughtWorks!");
+		System.out.println("Welcome to the mars rover squad positioning tool.");
+		System.out.println("----------------------------------------------");
+		System.out.println("Please Answer the next few input questions to set up the scenario you require.");
+		System.out.println("----------------------------------------------");
+		//welcome message
+		
+		Planet mars = new Planet(1);//creates new instance of a planet called mars assume there's only 1 plateau constructor gives mars the number of missions happening in the test case rather than using a set method
+		
+		System.out.println("Each plateau will be referred to as a mission space.");
+		System.out.println("The number of mission spaces in the test case is: "+ mars.getNumberOfMissions());
+		System.out.println("Please enter the dimensions of the mission space for example a 5x5 plateau would be entered as 5 5");
+		
+		
+		
+		Scanner sc = new Scanner(System.in);//Open the scanner for command line user input
+		String size = sc.nextLine();//user input as a string
+		String pattern = "\\d{1,9}\\s\\d{1,9}|\\d{1,9}\\d{1,9}\\s\\d{1,9}\\d{1,9}|\\d{1,9}\\d{1,9}\\d{1,9}\\s\\d{1,9}\\d{1,9}\\d{1,9}";
+		//String[] split = size.split(" ");
+		while(size.matches(pattern)==false || size.contains('0')=true) {//error message
+	
+			System.out.println("ERROR Please enter a valid input");
+			System.out.println("Please enter the dimensions of the mission space for example a 5x5 plateau would be entered as 5 5");
+			size = sc.nextLine();
+		    }
+		
+		mars.setMissionSpace(size); //sets the test class property mission space to be 5 5  as a string
+
+		
+		System.out.println("----------------------------------------------");		
+		MissionSpace alpha = new MissionSpace(mars.getMissionSpace());//Instantiates an object of type mission space
+		System.out.println("How many rovers are there on the plateau? (for our test case this should be 2)");
+	    while (!sc.hasNextInt()) sc.next();
+		int numberOfRovers = sc.nextInt();//lets user input number of rovers
+		pattern = "\\d|\\d\\d|\\d\\d\\d";
+		while(Integer.toString(numberOfRovers).matches(pattern)==false && numberOfRovers<=0) {//error message
+	
+			System.out.println("ERROR Please enter a valid input");
+			System.out.println("How many rovers are there on the plateau? (for our test case this should be 2)");
+			numberOfRovers = sc.nextInt();//lets user input number of rovers
+		    }
+		mars.setNumberofRovers(numberOfRovers);//updates the test class with number of rovers
+		System.out.println("----------------------------------------------");
+		
+		System.out.println("Mission Space Number: "+alpha.getMissionSpaceNumber());
+		alpha.setMissionSpaceName(alpha.getMissionSpaceNumber());
+		System.out.println("Mission Space Name is: "+ alpha.getMissionSpaceName() );
+		System.out.println("----------------------------------------------");		
+
+		System.out.println("Plateau is "+alpha.getSpacex()+" units wide.");//space[0] is x dimension
+		System.out.println("Plateau is "+alpha.getSpacey()+" units long.");//space[1] is y dimension
+		//could potentially have Z dimension for elevation etc.
+		
+		alpha.setRoversInSpace(mars.getNumberOfRovers());//set's the number of rovers operating in the mission space
+
+		System.out.println("The number of rovers operating in the mission space is: "+ alpha.getRoversInSpace() );//reports number of rover in space
+		System.out.println("----------------------------------------------");		
+		
+		Rover rovers[] = new Rover[alpha.getRoversInSpace()];//set array to length num
+		///the array has 2 elements and each element is an object type Rover
+		
+		alpha.setRovers(rovers);
+		
+		System.out.println("Rover info:");
+		System.out.println("----------------------------------------------");
+		for (int i =0; i<rovers.length;i++){
+			System.out.println("Rover "+(i+1)+"'s position is: "+Arrays.toString(rovers[i].getStartCo()));
+			System.out.println("And rover "+(i+1)+" is facing: "+rovers[i].getStartDir());
+			System.out.println("Rover "+(i+1)+"'s move order is: " + rovers[i].getMissionOrder());
+			
+			rovers[i].setEnd(rovers[i].getStartCo(), rovers[i].getStartDir(), rovers[i].getMissionOrder());
+			String a = rovers[i].getEnd();
+			String[] splitArray = a.split("\\s+");
+			int x = Integer.parseInt(splitArray[0]);
+			int y = Integer.parseInt(splitArray[1]);
+			
+			if ((x>=0 && x<=alpha.getSpacex()) && (y>=0 && y<=alpha.getSpacey())){
+			System.out.println("Rover "+(i+1)+"'s final position is: "+rovers[i].getEnd());
+			rovers[i].calculateDistance(rovers[i].getMissionOrder());
+			System.out.println("Distance Travelled is: "+rovers[i].getDistance()+" units.");
+			}
+			else{System.out.println("Fatal mission order issued");}
+			System.out.println("----------------------------------------------");
+		}
+		sc.close();
+	}
+}//main

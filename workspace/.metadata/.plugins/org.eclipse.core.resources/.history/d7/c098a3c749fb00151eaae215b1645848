@@ -1,0 +1,31 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import rover_positioning.MissionSpace;
+import rover_positioning.MissionSpec;
+import rover_positioning.Rover;
+
+public class RoverArrayTest {
+
+	@Test
+	public void test() {
+		
+	//	fail("Not yet implemented");
+		MissionSpec test = new MissionSpec();
+		test.setMissionSpace("5 5");
+		MissionSpace alpha = new MissionSpace(test.getMissionSpace());
+		alpha.setRoversInSpace(2);
+		
+		//alpha.setRovers(alpha.getRoversInSpace());
+		assertEquals(alpha.getRoversInSpace(),2);
+
+		Rover rovers[] = new Rover[alpha.getRoversInSpace()];//set array to length num
+
+		
+		assertEquals(rovers.length,2);
+	}
+
+}

@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public abstract class getUserInput {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter Scanner Size");
+		Scanner missionSpaceInput = new Scanner(System.in);
+		int missionSpace = missionSpaceInput.nextInt();
+		System.out.println("Mission Space is" + missionSpace);
+		
+	}
+
+}

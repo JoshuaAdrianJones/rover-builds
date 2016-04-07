@@ -1,0 +1,16 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MissionSpaceConstructorTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+		
+		
+	}
+
+}

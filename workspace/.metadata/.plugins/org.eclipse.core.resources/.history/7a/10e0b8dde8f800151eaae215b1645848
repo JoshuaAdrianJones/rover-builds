@@ -1,0 +1,27 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class NumberOfMissionsTest {
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		
+		Planet mars =new Planet();
+		TestCase test = new TestCase();
+		
+		mars.setNumberOfMissions(test.number_of_missions);
+		
+		assertEquals(mars.getNumberOfMissions(),1);
+		
+		MissionSpace alpha = new MissionSpace();//code for a specific MissionSpace
+		
+		
+		alpha.setMissionSpaceNumber(mars.getNumberOfMissions());
+		
+		assertEquals(alpha.getMissionSpaceNumber(),1); 
+	}
+
+}

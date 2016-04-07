@@ -1,0 +1,24 @@
+package rover_positioning;
+
+public class Planet{
+
+	//what if there's multiple mission spaces and multiple rovers?
+	//private MissionSpace[] missionspaces;//array of mission spaces operating on the planet
+	
+	//planet properties
+	private int numberOfMissionSpaces;//the number of missions occurring on the planet
+	//planet properties
+
+	//planet methods
+	public  int  getNumberOfMissions() {
+		
+		return numberOfMissionSpaces;
+	}
+	//planet methods
+	
+	//planet constructor
+	public Planet(int num){
+		numberOfMissionSpaces = num;//constructor sets the number of mission
+									//spaces when the object is first created.
+	}//planet constructor
+}

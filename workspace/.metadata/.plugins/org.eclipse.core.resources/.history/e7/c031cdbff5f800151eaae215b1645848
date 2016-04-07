@@ -1,0 +1,30 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class NumberOfMissionsTest {
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//tests for the number of missions on mars being the same as the test case
+		//tests for the mission space number being the correct mission space number
+		TestCase test = new TestCase();
+
+		Planet mars =new Planet(test.number_of_missions);
+		
+		//mars.setNumberOfMissions(test.number_of_missions); constructor set's the value 
+		//on instantiation rather than using a separate set method.
+		
+		assertEquals(mars.getNumberOfMissions(),1);//the test case only has 1 mission space
+		
+		MissionSpace alpha = new MissionSpace(test.plateau);//code for a specific MissionSpace
+		
+		
+		alpha.setMissionSpaceNumber(mars.getNumberOfMissions());
+		
+		assertEquals(alpha.getMissionSpaceNumber(),1);//the first mission space number should be 1 
+	}
+
+}

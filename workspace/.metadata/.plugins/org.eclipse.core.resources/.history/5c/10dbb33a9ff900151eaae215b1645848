@@ -1,0 +1,22 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Parseing_Mission_Space {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+	//this test uses the methods from main to set the mission space dimensions when given test space input
+		TestCase test = new TestCase();
+		test.setMissionSpace("5 5");
+		
+		
+		
+		
+	
+	}
+
+}

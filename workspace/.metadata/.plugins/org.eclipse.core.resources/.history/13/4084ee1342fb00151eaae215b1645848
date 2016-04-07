@@ -1,0 +1,40 @@
+package rover_positioning;
+
+//mission spec separates the user input from the actual functionality
+//such that should the user input change, the functionality stays constant
+
+
+class MissionSpec{
+
+	 //prototype properties for all classes
+	
+	 private int number_of_missions;//planet class property
+	 private int number_of_rovers;//mission space class property
+	 private String plateau;//dimensions of the mission space
+	 //prototype properties for all classes
+
+	 //methods
+	 public void setNumberofMissions(int numberOfMissions) {
+		number_of_missions = numberOfMissions;
+		
+		}
+	 public void setNumberofRovers(int numberOfRovers) {
+		 number_of_rovers = numberOfRovers;
+	}
+	 
+	public int getNumberOfMissions(){
+		 return number_of_missions;
+	 }
+	public int getNumberOfRovers(){
+		return number_of_rovers;
+	}
+	
+	public void setMissionSpace(String a){
+		plateau = a;
+	}
+	
+	public String getMissionSpace(){
+		return plateau;
+	}
+	//methods
+}

@@ -1,0 +1,26 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class SetMultipleRoversTest {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//tests that we can set and get multiple rovers
+		MissionSpec test = new MissionSpec();
+		MissionSpace test_space = new MissionSpace("5 5");
+		test_space.setRoversInSpace(2);//set's the number of rovers operating in the mission space
+
+		
+		Rover rovers[] = new Rover[test_space.getRoversInSpace()];//set array to length num
+		///the array has 2 elements and each element is an object type Rover
+		
+		//rovers[0].setStartCo("4 4 E");
+
+		//rovers[1].setStartCo("5 2 W");
+	}
+
+}

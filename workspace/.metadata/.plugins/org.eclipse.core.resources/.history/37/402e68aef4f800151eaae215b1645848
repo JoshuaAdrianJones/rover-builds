@@ -1,0 +1,27 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MissionSpaceConstructorTest {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//what classes are we going to use for this test?
+		TestCase test = new TestCase();
+		MissionSpace test_mission_space = new MissionSpace(test.plateau);
+		
+		//splits the string into an array
+		 String[] splitArray = test.plateau.split("\\s+");
+		 test_mission_space.setSpace();
+		 
+		 test_mission_space.mission_size_x =  Integer.parseInt(splitArray[0]);
+		 test_mission_space.mission_size_y =  Integer.parseInt(splitArray[1]);
+
+		
+		
+	}
+
+}

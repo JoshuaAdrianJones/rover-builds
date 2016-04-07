@@ -1,0 +1,30 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MissionSpaceName {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//tests if mission space names work correctly
+		TestCase test = new TestCase();
+		MissionSpace alpha = new MissionSpace(test.plateau);
+		Planet mars =new Planet(test.number_of_missions);
+		alpha.setMissionSpaceName();
+		String a = alpha.getMissionSpaceName();
+		
+		MissionSpace bravo = new MissionSpace(test.plateau);
+		String b = bravo.getMissionSpaceName();
+		bravo.setMissionSpaceName();
+		
+		assertEquals(a,"alpha");
+		assertEquals(b,"bravo");
+
+		
+		
+	}
+
+}

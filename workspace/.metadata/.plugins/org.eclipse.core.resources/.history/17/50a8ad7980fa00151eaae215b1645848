@@ -1,0 +1,25 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class ParseingMissionOrdersTest {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		MissionSpec test = new MissionSpec();
+		MissionSpace test_space = new MissionSpace("5 5");
+		test_space.setRoversInSpace(2);//set's the number of rovers operating in the mission space
+		Rover rovers[] = new Rover[test_space.getRoversInSpace()];//set array to length num
+		
+		rovers[0]=new Rover();
+		rovers[0].setStartCo("4 4 E");//manually set the value of some rover position and direction
+				
+		String missionOrders ="MLR";
+		
+		
+	}
+
+}

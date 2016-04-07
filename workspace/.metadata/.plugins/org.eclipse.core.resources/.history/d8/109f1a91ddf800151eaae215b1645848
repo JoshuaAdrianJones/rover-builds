@@ -1,0 +1,10 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Number_of_missions_test {
+
+	
+}

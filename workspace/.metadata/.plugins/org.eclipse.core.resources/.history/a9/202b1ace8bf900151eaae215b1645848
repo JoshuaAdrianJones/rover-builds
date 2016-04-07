@@ -1,0 +1,67 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MissionSpaceName {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//tests if mission space names work correctly
+		TestCase test = new TestCase();
+		
+		
+		MissionSpace alpha = new MissionSpace(test.plateau);//code for a specific MissionSpace
+		assertEquals(alpha.getMissionSpaceNumber(),1);//the first mission space number should be 1 
+		
+		alpha.setMissionSpaceName(alpha.getMissionSpaceNumber());
+		
+		assertEquals(alpha.getMissionSpaceName(),"alpha");
+
+		MissionSpace bravo = new MissionSpace(test.plateau);//code for a specific MissionSpace
+		
+		
+		assertEquals(bravo.getMissionSpaceNumber(),2);//the first mission space number should be 1 
+		
+		bravo.setMissionSpaceName(bravo.getMissionSpaceNumber());
+		
+		
+		assertEquals(bravo.getMissionSpaceName(),"bravo");
+		
+		
+		MissionSpace charlie = new MissionSpace(test.plateau);//code for a specific MissionSpace
+		
+	
+		assertEquals(charlie.getMissionSpaceNumber(),3);//the first mission space number should be 1 
+		
+		bravo.setMissionSpaceName(charlie.getMissionSpaceNumber());
+		
+		
+		assertEquals(charlie.getMissionSpaceName(),"charlie");
+		
+		MissionSpace delta = new MissionSpace(test.plateau);//code for a specific MissionSpace
+		
+		
+		assertEquals(delta.getMissionSpaceNumber(),4);//the first mission space number should be 1 
+		
+		delta.setMissionSpaceName(delta.getMissionSpaceNumber());
+		
+		
+		assertEquals(delta.getMissionSpaceName(),"delta");
+		
+
+		
+
+		
+		
+		
+		
+		
+
+		
+		
+	}
+
+}

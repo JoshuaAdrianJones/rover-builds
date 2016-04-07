@@ -1,0 +1,31 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MissionSpaceConstructorTest {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//Tests that the mission Space constructor creates a mission space from test case input
+		
+		//what classes are we going to use for this test?
+		TestCase test = new TestCase();
+		MissionSpace test_mission_space = new MissionSpace(test.getMissionSpace());
+		
+		int[] Space =test_mission_space.getSpace();//set's the size of the mission space
+		//System.out.println("Plateau is "+Space[0]+" units wide.");
+		//System.out.println("Plateau is "+Space[1]+" units long.");
+
+		
+		assertEquals(Space[0],5);
+		assertEquals(Space[1],5);
+		
+		
+		
+		
+	}
+
+}

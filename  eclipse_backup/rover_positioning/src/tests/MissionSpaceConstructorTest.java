@@ -1,0 +1,23 @@
+package tests;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import rover_positioning.MissionSpace;
+import rover_positioning.Planet;
+
+public class MissionSpaceConstructorTest {
+	@Test
+	public void test() {
+		//Tests that the mission Space constructor creates a mission space from test case input		
+		Planet mars = new Planet(1);
+		mars.setMissionSpace("23 59");
+		
+		MissionSpace test_mission_space = new MissionSpace(mars.getMissionSpace());
+		int x =test_mission_space.getSpacex();//set's the size of the mission space
+		int y =test_mission_space.getSpacey();//set's the size of the mission space	
+		
+		assertEquals(x,23);
+		assertEquals(y,59);
+	}
+}

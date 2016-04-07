@@ -1,0 +1,14 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Number_of_missions_test {
+	//tests if the number of mission is input correctly
+	@test
+	public void test(){
+		fail("not yet implemented")
+	}
+	
+}

@@ -1,0 +1,21 @@
+package rover_positioning;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MissionSpaceConstructorTest {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		//what classes are we going to use for this test?
+		TestCase test = new TestCase();
+		MissionSpace test_mission_space = new MissionSpace(test.plateau);
+		
+		
+		
+		
+	}
+
+}

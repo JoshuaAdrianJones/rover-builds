@@ -1,0 +1,26 @@
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import rover_positioning.MissionSpace;
+import rover_positioning.MissionSpec;
+import rover_positioning.Rover;
+
+public class ParseingMissionOrdersTest {
+	@Test
+	public void test() {
+		MissionSpec test = new MissionSpec();
+		MissionSpace test_space = new MissionSpace("5 5");
+		test_space.setRoversInSpace(2);//set's the number of rovers operating in the mission space
+		Rover rovers[] = new Rover[test_space.getRoversInSpace()];//set array to length num
+		rovers[0]=new Rover();
+		rovers[0].setStartCo("3 3 E");//manually set the value of some rover position and direction
+		String rover_1_move_order = "MMRMMRMRRM";//manually set some move order
+		String rover_1_end = "5 1 E";//manually set some end position
+		rovers[0].setMissionOrder(rover_1_move_order);
+		rovers[0].setEnd(rovers[0].getStartCo(),rovers[0].getStartDir(),rovers[0].getMissionOrder());//run the mission order calculation
+		assertEquals(rovers[0].getEnd(),rover_1_end);		 
+	}
+}

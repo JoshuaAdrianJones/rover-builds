@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public abstract class getUserInput {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter Mission Space Size");
+		
+		Scanner missionSpaceInput = new Scanner(System.in);
+		String missionSpace = missionSpaceInput.nextLine();
+		missionSpaceInput.close();
+
+		System.out.println("Mission Space is: " + missionSpace);
+		String[] splitArray = missionSpace.split("\\s+");
+		System.out.println(splitArray[0]);
+		System.out.println(splitArray[1]);
+		System.out.println(splitArray[2]);
+	}
+
+}
